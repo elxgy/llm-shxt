@@ -19,3 +19,7 @@ vocab_size = len(chars)
 enc = tiktoken.get_encoding('gpt2')
 
 data = torch.tensor(enc.encode(text), dtype=torch.long)
+
+n_data = int(0.9 * len(data))
+train_data = data[:n_data]
+test_data = data[n_data:]
